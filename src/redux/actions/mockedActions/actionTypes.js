@@ -1,0 +1,2 @@
+export const ADD_MOCKED_TODOS = "ADD_MOCKED_TODOS";
+export const PAGE_NUMBER = "PAGE_NUMBER";

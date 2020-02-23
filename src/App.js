@@ -1,13 +1,15 @@
 import React from "react";
-import { Provider } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+//main components
 import Board from "./views/Board";
-import store from "./redux";
+import MockedTodos from "./views/MockedTodos";
 
 function App() {
   return (
-    <Provider store={store}>
-      <Board />
-    </Provider>
+    <Switch>
+      <Route exact path="/" render={() => <Board />} />
+      <Route exact path="/grid" render={() => <MockedTodos />} />
+    </Switch>
   );
 }
 

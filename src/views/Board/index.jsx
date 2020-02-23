@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 //main components
@@ -8,12 +8,18 @@ import Form from "../../components/Form";
 import TodoCard from "../../components/TodoCard";
 import * as actionCreators from "../../redux/actions/todoActions/actionCreators";
 
+//service
+import { fetchData } from "../../service/mockedData";
+
 //styles
 import { Container, CardsContainer, Title } from "./styles";
 
 const Board = ({ add, remove, todoList }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  useEffect(() => {
+    fetchData();
+  }, []);
   const handleSubmit = event => {
     event.preventDefault();
     add(title, content);
@@ -21,7 +27,12 @@ const Board = ({ add, remove, todoList }) => {
     setContent("");
   };
   const displayCards = todoList.map(card => (
-    <TodoCard key={card.id} {...card} onClick={() => remove(card.id)} />
+    <TodoCard
+      key={card.id}
+      buttonText="remove"
+      onClick={() => remove(card.id)}
+      {...card}
+    />
   ));
 
   return (

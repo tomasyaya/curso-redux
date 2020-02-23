@@ -15,6 +15,8 @@ export const Container = styled.div`
 export const Title = styled.h2`
   opacity: 0.8;
   text-transform: uppercase;
+  font-size: 0.9em;
+  min-width: 300px;
 `;
 
 export const Content = styled.p``;

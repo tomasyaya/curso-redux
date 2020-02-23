@@ -6,11 +6,11 @@ import Button from "../Button";
 //styles
 import { Container, Content, Title } from "./styles";
 
-const TodoCard = ({ title, content, onClick }) => (
+const TodoCard = ({ title, content, onClick, buttonText }) => (
   <Container>
     <Title>{title}</Title>
     <Content>{content}</Content>
-    <Button onClick={onClick}>remove</Button>
+    {onClick && <Button onClick={onClick}>{buttonText}</Button>}
   </Container>
 );
 
